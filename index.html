@@ -20,8 +20,8 @@
         <a-asset-item id="mtl" src="pigpig.mtl"></a-asset-item>   <!-- mtlファイル -->
       </a-assets>
       <a-assets>
-        <a-asset-item id="obj2" src="Mesh_Pig.gltf"></a-asset-item>   <!-- objファイル -->
-        <a-asset-item id="mtl2" src="Pig.mtl"></a-asset-item>   <!-- mtlファイル -->
+        <a-asset-item id="obj2" src="BootleOfWine.obj"></a-asset-item>   <!-- objファイル -->
+        <a-asset-item id="mtl2" src="BootleOfWine.mtl"></a-asset-item>   <!-- mtlファイル -->
       </a-assets>
 
       <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
@@ -46,8 +46,22 @@
 
       <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
       <a-marker preset="kanji">
-           <!-- 表示させるテキスト -->
-          <a-text value="OK" scale="4.5 4.5 4.5" position="-1.0 0.5 0" rotation="-90 0 0" color="#00ffff"></a-text>
+        <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
+       <!-- <a-box position="0 0.5 0" wireframe="true"></a-box> -->
+        <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+        <a-obj-model
+          src="#obj"
+          mtl="#mtl"
+          scale="0.01 0.01 0.01"
+          position="0 0.9 0">
+          <a-animation
+            attribute="rotation"
+            to="0 360 0"
+            dur="3000"
+            easing="linear"
+            repeat="indefinite">
+          </a-animation>
+        </a-obj-model>
       </a-marker>
 
       <!-- AR用のカメラを置く -->
